@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layouts/header/header.component';
 import { CategoryNavbarComponent } from './layouts/category-navbar/category-navbar.component';
