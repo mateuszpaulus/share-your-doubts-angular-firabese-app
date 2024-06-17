@@ -1,20 +1,20 @@
 <div class="card shadow-effect">
-  <img
-    src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg"
-    alt="post-image"
-    class="card-img-top"
-  />
+  <img [src]="postData.data.imageUrl" alt="post-image" class="card-img-top" />
   <div class="card-body">
-    <small class="bg-light text-danger text-center">Design</small>
+    <small class="bg-light text-danger text-center">
+      {{ postData.data.category.category }}
+    </small>
     <small class="bg-light text-success text-center ml-3">Featured</small>
-    <small class="bg-light text-info text-center ml-3">Views</small>
-    <h5 class="mt-1">Title</h5>
+    <small class="bg-light text-info text-center ml-3">{{
+      postData.data.views
+    }}</small>
+    <h5 class="mt-1">{{ postData.data.title }}</h5>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
-      sapiente, numquam eum, itaque repellat perferendis hic a ad nostrum
-      excepturi praesentium harum molestiae quidem suscipit neque veniam beatae
-      deserunt expedita.
+      {{ postData.data.details }}
     </p>
-    <small class="bg-light text-warning text-center ml-3">Last update</small>
+    <small class="bg-light text-warning text-center ml-3">
+      LAST UPDATED -
+      {{ convertTimestampToDate(postData.data.createdAt) | date }}
+    </small>
   </div>
 </div>

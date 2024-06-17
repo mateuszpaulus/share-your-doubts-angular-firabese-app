@@ -21,5 +21,5 @@ import { SubscriptionFormComponent } from './subscription-form/subscription-form
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'share-your-doubts-angular-firebase-app';
+  title = 'your-doubts-angular-firebase-app';
 }
