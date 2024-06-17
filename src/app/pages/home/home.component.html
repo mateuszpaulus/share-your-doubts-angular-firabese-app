@@ -10,17 +10,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-3">
-        <app-post-card></app-post-card>
-      </div>
-      <div class="col-lg-3">
-        <app-post-card></app-post-card>
-      </div>
-      <div class="col-lg-3">
-        <app-post-card></app-post-card>
-      </div>
-      <div class="col-lg-3">
-        <app-post-card></app-post-card>
+      <div class="col-lg-3" *ngFor="let post of posts">
+        <app-post-card [postData]="post"></app-post-card>
       </div>
     </div>
   </div>
@@ -33,7 +24,7 @@
     </p>
   </div>
   <div class="row">
-    <div class="col-md-4 mt-3">
+    <!-- <div class="col-md-4 mt-3">
       <app-post-card></app-post-card>
     </div>
     <div class="col-md-4 mt-3">
@@ -50,6 +41,6 @@
     </div>
     <div class="col-md-4 mt-3">
       <app-post-card></app-post-card>
-    </div>
+    </div> -->
   </div>
 </section>
