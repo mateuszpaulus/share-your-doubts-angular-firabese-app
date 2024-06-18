@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PostCardComponent } from '../../layouts/post-card/post-card.component';
 import { PostsService } from '../../services/posts.service';
 import { Subscription } from 'rxjs';
@@ -12,9 +12,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
   posts: { id: string; data: Post }[] = [];
+  latestPosts: { id: string; data: Post }[] = [];
+
   private dataPosts: Subscription | null = null;
+  private dataLatestPosts: Subscription | null = null;
 
   constructor(private postsService: PostsService) {}
 
@@ -22,9 +25,15 @@ export class HomeComponent {
     this.dataPosts = this.postsService.loadData().subscribe((data) => {
       this.posts = data;
     });
+    this.dataLatestPosts = this.postsService
+      .loadLatestData()
+      .subscribe((data) => {
+        this.latestPosts = data;
+      });
   }
 
   ngOnDestroy(): void {
     this.dataPosts?.unsubscribe();
+    this.dataLatestPosts?.unsubscribe();
   }
 }
