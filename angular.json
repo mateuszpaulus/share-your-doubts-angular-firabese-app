@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "your-doubts-angular-firabese-app": {
+    "your-doubts-angular-firebase-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/your-doubts-angular-firabese-app",
+            "outputPath": "dist/your-doubts-angular-firebase-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "your-doubts-angular-firabese-app:build:production"
+              "buildTarget": "your-doubts-angular-firebase-app:build:production"
             },
             "development": {
-              "buildTarget": "your-doubts-angular-firabese-app:build:development"
+              "buildTarget": "your-doubts-angular-firebase-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "your-doubts-angular-firabese-app:build"
+            "buildTarget": "your-doubts-angular-firebase-app:build"
           }
         },
         "test": {
