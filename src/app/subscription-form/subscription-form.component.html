@@ -8,23 +8,58 @@
         minima quaerat asperiores nobis illum iure voluptate? Animi praesentium
         laudantium mollitia nobis.
       </p>
-      <form action="" class="form-inline mb-5 mt-5">
+      <div *ngIf="isEmailInUse" class="alert-danger mt-3 alert">
+        Email is Already in use
+      </div>
+      <div *ngIf="isSubscribed" class="alert-info mt-3 alert">
+        Thank you for subscribing
+      </div>
+      <form #subForm="ngForm" (ngSubmit)="onSubmit(subForm.value)" *ngIf="!isSubscribed" class="form-inline mb-5 mt-5">
         <div class="form-group col-md-5">
           <input
-            type="text"
-            class="form-control shadow-effect"
+            #name="ngModel"
+            [ngClass]="{'is-invalid': name.touched && name.invalid}"
+            class="form-control"
+            name="name"
+            ngModel
             placeholder="Name"
+            required
+            type="text"
           />
+          <div
+            *ngIf="name.touched && name.invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="name.errors?.['required']">
+              Name is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-5">
           <input
-            type="email"
-            class="form-control shadow-effect"
+            #email="ngModel"
+            [ngClass]="{'is-invalid': email.touched && email.invalid}"
+            class="form-control"
+            email
+            name="email"
+            ngModel
             placeholder="Email"
+            required
+            type="email"
           />
+          <div
+            *ngIf="email.touched && email.invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="email.errors?.['required']">
+              Name is required
+            </div>
+            <div *ngIf="email.errors?.['email']">Enter a valid email</div>
+
+          </div>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-info btn-block btn-theme bg-theme">
+          <button [disabled]="subForm.invalid" class="btn btn-info btn-block btn-theme bg-theme">
             Subscribe
           </button>
         </div>
